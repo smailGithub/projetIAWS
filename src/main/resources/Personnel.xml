@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Utilisateurs>
+<personnel id="14564">
+	<nom>TestNom</nom>
+	<prenom>TestPrenom</prenom>
+	<mail>test@mail.com</mail>
+	<adrPostale>Test Adresse</adrPostale>
+</personnel>
+<personnel id="24456">
+	<nom>TestNom2</nom>
+	<prenom>TestPrenom2</prenom>
+	<mail>test2@mail.com</mail>
+	<adrPostale>Test Adresse 2</adrPostale>
+</personnel>
+</Utilisateurs>
