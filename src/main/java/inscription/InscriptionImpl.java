@@ -1,17 +1,22 @@
 package inscription;
 
+import connexionDB.*;
+
 public class InscriptionImpl implements InscriptionInterface{
 
 	public int verificationPersonnel(String nom, String prenom, String mail,
 			String adrPostale) {
 		
-		//vérification du mail
+		//Vérification du mail
 		if(mail.contains("@") && mail.substring(mail.lastIndexOf('@') + 1).equals("univ-tlse3.fr")) {
 			return 110; 
 		}
 		
 		return 0;
 	}
+	
+	String requete="SELECT mail FROM personnel";
+	
 	
 	//
 	
