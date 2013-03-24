@@ -19,7 +19,7 @@ import java.util.List;
  * 
  */
 // Connexion à la base de donnée
-public class ConnectToDb {
+public class DbConnection {
 
 	Connection connexion = null;
 	Statement st = null;

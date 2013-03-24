@@ -17,7 +17,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ConnectToDb connexion = new ConnectToDb();
+		DbConnection connexion = new DbConnection();
 		String db = "applicationws";
 		connexion.checkDriver();
 		connexion.connexionDB(db);
