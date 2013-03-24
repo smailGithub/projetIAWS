@@ -5,4 +5,4 @@
  * @author Ismail
  *
  */
-package connexionDB;
+package iaws.connexionDB;

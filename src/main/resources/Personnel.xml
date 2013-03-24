@@ -6,10 +6,4 @@
 	<mail>test@mail.com</mail>
 	<adrPostale>Test Adresse</adrPostale>
 </personnel>
-<personnel id="24456">
-	<nom>TestNom2</nom>
-	<prenom>TestPrenom2</prenom>
-	<mail>test2@mail.com</mail>
-	<adrPostale>Test Adresse 2</adrPostale>
-</personnel>
 </Utilisateurs>

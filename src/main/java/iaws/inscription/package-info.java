@@ -5,4 +5,4 @@
  * @author etu5
  *
  */
-package inscription;
+package iaws.inscription;

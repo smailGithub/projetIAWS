@@ -3,15 +3,16 @@
  *
  */
 
-package inscription;
+package iaws.inscription;
+
+import iaws.connexionDB.ConnectToDbImpl;
 
 import java.util.List;
 import java.sql.ResultSet;
 
-import connexionDB.ConnectToDbImpl;
 
 /**
- * @author Ismail
+ * @author Vincent Carassus
  * 
  */
 public class InscriptionService {
@@ -40,7 +41,6 @@ public class InscriptionService {
 		ResultSet res = null;
 		String requete = "SELECT mail FROM personnel";
 		res = dbConnection.selectRequest(requete, DB_NAME);
-		// System.out.println(request.CoutResult(res));
 		List<String> resultList = dbConnection.countResult(res);
 		for (int i = 0; i < resultList.size();i++) {
 			if (resultList.get(i).equals(mail))
@@ -50,6 +50,6 @@ public class InscriptionService {
 	}
 
 	private boolean isMailValid(String mail) {
-		return (mail.contains("@") && mail.substring(mail.lastIndexOf('@') + 1).equals("univ-tlse3.fr"));
+		return (mail.contains("@"));
 	}
 }

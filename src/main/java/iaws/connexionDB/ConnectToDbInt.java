@@ -1,7 +1,7 @@
 /**
  * 
  */
-package connexionDB;
+package iaws.connexionDB;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -1,4 +1,4 @@
-package personnel;
+package iaws.personnel;
 
 public class Personnel {
     private String nom;

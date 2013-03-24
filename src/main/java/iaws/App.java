@@ -1,4 +1,4 @@
-package dcll.projetIAWS;
+package iaws;
 
 /**
  * Hello world!

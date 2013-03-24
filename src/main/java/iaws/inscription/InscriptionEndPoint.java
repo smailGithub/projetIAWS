@@ -1,4 +1,4 @@
-package inscription;
+package iaws.inscription;
 
 
 import org.jdom.Element;
