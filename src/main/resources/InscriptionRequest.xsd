@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://projetIAWS/">
+
+	<xs:element name="InscriptionRequest">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="nom" type="xs:String"/>
+				<xs:element name="prenom" type="xs:String"/>
+				<xs:element name="mail" type="xs:String"/>
+				<xs:element name="adrPostale" type="xs:String"/>
+			</xs:all>
+			<xs:attribute type="xs:int" name="id" use="optional" />
+		</xs:complexType>
+
+	</xs:element>
+
+</schema>
