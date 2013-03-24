@@ -5,7 +5,7 @@
 
 package iaws.inscription;
 
-import iaws.connexionDB.ConnectToDbImpl;
+import iaws.connexionDB.ConnectToDb;
 
 import java.util.List;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.sql.ResultSet;
  */
 public class InscriptionService {
 
-	private ConnectToDbImpl dbConnection = new ConnectToDbImpl();
+	private ConnectToDb dbConnection = new ConnectToDb();
 	private static final String DB_NAME = "applicationws";
 
 	public int inscription(String lastname, String firstname, String mail, String adrPostale) {

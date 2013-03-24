@@ -19,7 +19,7 @@ import java.util.List;
  * 
  */
 // Connexion à la base de donnée
-public class ConnectToDbImpl implements ConnectToDbInt {
+public class ConnectToDb {
 
 	Connection connexion = null;
 	Statement st = null;
