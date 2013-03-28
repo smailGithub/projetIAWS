@@ -93,7 +93,7 @@ public class DbConnection {
 
 	// Resultat de la requête
 
-	public List<String> countResult(ResultSet res) {
+	public List<String> getResult(ResultSet res) {
 
 		try {
 			ResultSetMetaData data = res.getMetaData();

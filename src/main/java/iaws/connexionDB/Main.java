@@ -27,7 +27,7 @@ public class Main {
 		ResultSet res = connexion.selectRequest("SELECT mail FROM personnel;",
 				db);
 		List<String> Liste = new ArrayList<String>();
-		Liste = (connexion.countResult(res));
+		Liste = (connexion.getResult(res));
 		for (int i = 0; i < Liste.size(); i++)
 			System.out.println(Liste.get(i));
 	}

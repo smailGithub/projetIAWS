@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://projetIAWS">
+	<xs:element name="GetVoisinRequest">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="mail" type="xs:String"/>
+				<xs:element name="adrPostale" type="xs:String"/>
+			</xs:all>
+			<xs:attribute type="xs:int" name="id" use="optional" />
+		</xs:complexType>
+	</xs:element>
+</schema>

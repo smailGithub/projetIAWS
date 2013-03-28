@@ -32,7 +32,7 @@ public class InscriptionService {
 	}
 
 	private void addToDB(String lastname, String firstname, String mail, String adrPostale) {
-		String insert = "INSERT INTO personnel(`nom`,`prenom`,`mail`,`adrPostale`)VALUES('" + lastname + "','" + firstname
+		String insert = "INSERT INTO personnel(`nom`,`prenom`,`mail`,`adrPostale`,`latitude`,`longitude`)VALUES('" + lastname + "','" + firstname
 				+ "','" + mail + "'," + adrPostale + ");";
 		dbConnection.insertRequest(insert, DB_NAME);
 	}
@@ -41,7 +41,7 @@ public class InscriptionService {
 		ResultSet res = null;
 		String requete = "SELECT mail FROM personnel";
 		res = dbConnection.selectRequest(requete, DB_NAME);
-		List<String> resultList = dbConnection.countResult(res);
+		List<String> resultList = dbConnection.getResult(res);
 		for (int i = 0; i < resultList.size();i++) {
 			if (resultList.get(i).equals(mail))
 				return true;

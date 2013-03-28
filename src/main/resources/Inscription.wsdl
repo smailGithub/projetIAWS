@@ -14,7 +14,6 @@
     <wsdl:part element="schema:NeighborsRequest" name="NeighborsRequest"/>
   </wsdl:message>
   
-  
   <wsdl:message name="NewOperationResponse">
     <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
   </wsdl:message>
@@ -42,7 +41,26 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+
+<wsdl:portType name="Neighbors">
+    <wsdl:operation name="NeighborsOperation">
+      <wsdl:input message="tns:NeighborsRequest" name="NeighborsRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
   
+  
+  <wsdl:binding name="NeighborsBinding" type="tns:Neighbors">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="NeighborsOperation">
+      <soap:operation soapAction="http://IAWS/Inscription"/>
+      <wsdl:input name="NeighborsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   
   <wsdl:service name="CovoiturageService">
     <wsdl:port binding="tns:InscriptionBinding" name="Inscription">
