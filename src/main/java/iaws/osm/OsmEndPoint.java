@@ -1,6 +1,8 @@
 package iaws.osm;
 
 
+import iaws.osm.OsmService;
+
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.Namespace;
