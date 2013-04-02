@@ -55,13 +55,6 @@ public class InscriptionEndPoint {
 	
 	/**
 	 * Alternative method
-	 * 
-	 * 
-	 * @param nom
-	 * @param prenom
-	 * @param mail
-	 * @param adrPostale
-	 * @throws Exception
 	 */
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InscriptionRequest2")
 	public int handleInscriptionRequest2(@XPathParam("//InscriptionRequest/nom") String nom,

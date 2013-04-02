@@ -41,7 +41,7 @@
   <wsdl:binding name="getVoisinBinding" type="tns:getVoisin">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="getVoisinOperation">
-      <soap:operation soapAction="http://IAWS/"/>
+      <soap:operation soapAction="http://IAWS/Voisins"/>
       <wsdl:input name="VoisinRequest">
         <soap:body use="literal"/>
       </wsdl:input>

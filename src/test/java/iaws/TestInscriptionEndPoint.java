@@ -17,7 +17,7 @@ import static org.springframework.ws.test.server.RequestCreators.withPayload;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("application-context.xml")
-public class TestInscriptionEndpoint {
+public class TestInscriptionEndPoint {
 
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -30,7 +30,7 @@ public class TestInscriptionEndpoint {
 	}
 
 	@Test
-	public void inscriptionEndpoint() throws Exception {
+	public void inscriptionEndPoint() throws Exception {
 		Source requestPayload = new StreamSource(new ClassPathResource("UserExample.xml").getInputStream());
 
 		mockClient.sendRequest(withPayload(requestPayload));
