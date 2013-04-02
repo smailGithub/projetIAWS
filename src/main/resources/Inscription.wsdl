@@ -6,7 +6,6 @@
     </xsd:schema>
   </wsdl:types>
   
-  
   <wsdl:message name="InscriptionRequest">
     <wsdl:part element="schema:InscriptionRequest" name="InscriptionRequest"/>
   </wsdl:message>
@@ -19,7 +18,11 @@
       <wsdl:input message="tns:InscriptionRequest" name="InscriptionRequest"/>
     </wsdl:operation>
   </wsdl:portType>
-  
+  <wsdl:portType name="Neighbors">
+    <wsdl:operation name="NeighborsOperation">
+      <wsdl:input message="tns:NeighborsRequest" name="NeighborsRequest"/>
+    </wsdl:operation>
+  </wsdl:portType>
   
   <wsdl:binding name="InscriptionBinding" type="tns:Inscription">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -33,13 +36,6 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-
-<wsdl:portType name="Neighbors">
-    <wsdl:operation name="NeighborsOperation">
-      <wsdl:input message="tns:NeighborsRequest" name="NeighborsRequest"/>
-    </wsdl:operation>
-  </wsdl:portType>
-  
   
   <wsdl:binding name="NeighborsBinding" type="tns:Neighbors">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>

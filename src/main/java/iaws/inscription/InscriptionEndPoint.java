@@ -43,8 +43,8 @@ public class InscriptionEndPoint {
 
 	}
 	
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "HolidayRequest")                  
-	  public void handleHolidayRequest(@RequestPayload Element inscriptionRequest)               
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InscriptionRequest")                  
+	  public void handleInscriptionRequest(@RequestPayload Element inscriptionRequest)               
 	      throws Exception {
 	    String lastname = lastNameExpression.valueOf(inscriptionRequest);
 	    String firstname = firstNameExpression.valueOf(inscriptionRequest);
