@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.XPathParam;
 
 @Endpoint
 public class InscriptionEndPoint {
@@ -51,5 +52,24 @@ public class InscriptionEndPoint {
 
 		inscriptionService.inscription(lastname, firstname, mail, adrPostale);
 	}
+	
+	/**
+	 * Alternative method
+	 * 
+	 * 
+	 * @param nom
+	 * @param prenom
+	 * @param mail
+	 * @param adrPostale
+	 * @throws Exception
+	 */
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InscriptionRequest2")
+	public void handleInscriptionRequest2(@XPathParam("//InscriptionRequest/nom") String nom,
+			@XPathParam("//InscriptionRequest/prenom") String prenom,
+			@XPathParam("//InscriptionRequest/mail") String mail,
+			@XPathParam("//InscriptionRequest/adrPostale") String adrPostale
+			) throws Exception {
 
+		inscriptionService.inscription(nom, prenom, mail, adrPostale);
+	}
 }
