@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Utilisateurs>
+<GetVoisinRequest>
 <personnel id="14564">
 	<mail>test@mail.com</mail>
-	<adrPostale>Test Adresse</adrPostale>
+	<rayon>150</rayon>
 </personnel>
-</Utilisateurs>
+</GetVoisinRequest>

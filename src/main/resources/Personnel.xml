@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Utilisateurs>
-<personnel id="14564">
+<InscriptionRequest id="14564">
 	<nom>TestNom</nom>
 	<prenom>TestPrenom</prenom>
 	<mail>test@mail.com</mail>
 	<adrPostale>Test Adresse</adrPostale>
-</personnel>
-</Utilisateurs>
+</InscriptionRequest>

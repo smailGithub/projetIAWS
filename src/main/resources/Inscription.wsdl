@@ -12,15 +12,7 @@
   </wsdl:message>
   <wsdl:message name="NeighborsRequest">
     <wsdl:part element="schema:NeighborsRequest" name="NeighborsRequest"/>
-  </wsdl:message>
-  
-  <wsdl:message name="NewOperationResponse">
-    <wsdl:part element="tns:NewOperationResponse" name="parameters"/>
-  </wsdl:message>
-  
-  
-  
-  
+  </wsdl:message> 
   
   <wsdl:portType name="Inscription">
     <wsdl:operation name="InscriptionOperation">

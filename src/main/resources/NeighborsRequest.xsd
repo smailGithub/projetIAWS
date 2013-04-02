@@ -4,6 +4,7 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element name="mail" type="xs:String"/>
+				<xs:element name="rayon" type="xs:int"/>
 			</xs:all>
 			<xs:attribute type="xs:int" name="id" use="optional" />
 		</xs:complexType>

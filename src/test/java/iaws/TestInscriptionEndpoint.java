@@ -17,31 +17,27 @@ import static org.springframework.ws.test.server.RequestCreators.withPayload;
 import static org.springframework.ws.test.server.ResponseMatchers.payload;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("application-context.xml")
+ @ContextConfiguration("application-context.xml")
 public class TestInscriptionEndpoint {
-	
-	public class TestIntegrationReleveNotesEndPoint {
 
-	    @Autowired
-	    private ApplicationContext applicationContext;
+	@Autowired
+	private ApplicationContext applicationContext;
 
-	    private MockWebServiceClient mockClient;
+	private MockWebServiceClient mockClient;
 
-	    @Before
-	    public void createClient() {
-	        mockClient = MockWebServiceClient.createClient(applicationContext);
-	    }
+	@Before
+	public void createClient() {
+		mockClient = MockWebServiceClient.createClient(applicationContext);
+	}
 
-	    @Test
-	    public void releveNotesEndpoint() throws Exception {
-	        Source requestPayload = new StreamSource(new ClassPathResource("Personnel.xml").getInputStream() );
-//	        Source responsePayload = new StreamSource(new ClassPathResource("ReleveNotes.xml").getInputStream());
+	@Test
+	public void inscriptionEndpoint() throws Exception {
+		Source requestPayload = new StreamSource(new ClassPathResource("Personnel.xml").getInputStream());
 
-//	        mockClient.sendRequest(withPayload(requestPayload)).
-//	                andExpect(payload(responsePayload));
-	        
-	        mockClient.sendRequest(withPayload(requestPayload));
-	    }
+		// mockClient.sendRequest(withPayload(requestPayload)).
+		// andExpect(payload(responsePayload));
+
+		mockClient.sendRequest(withPayload(requestPayload));
 	}
 
 }

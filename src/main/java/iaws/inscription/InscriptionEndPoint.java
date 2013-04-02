@@ -14,7 +14,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 @Endpoint
 public class InscriptionEndPoint {
 
-	private static final String NAMESPACE_URI = "http://projetIAWS/";
+	private static final String NAMESPACE_URI = "http://IAWS/";
 
 	private XPath lastNameExpression;
 	private XPath firstNameExpression;
