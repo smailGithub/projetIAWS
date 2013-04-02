@@ -3,5 +3,5 @@
 	<nom>TestNom</nom>
 	<prenom>TestPrenom</prenom>
 	<mail>test@mail.com</mail>
-	<adrPostale>Test Adresse</adrPostale>
+	<adrPostale>118 Route de Narbonne, 31062 Toulouse, France</adrPostale>
 </InscriptionRequest>

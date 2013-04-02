@@ -14,10 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ws.test.server.MockWebServiceClient;
 
 import static org.springframework.ws.test.server.RequestCreators.withPayload;
-import static org.springframework.ws.test.server.ResponseMatchers.payload;
 
 @RunWith(SpringJUnit4ClassRunner.class)
- @ContextConfiguration("application-context.xml")
+@ContextConfiguration("application-context.xml")
 public class TestInscriptionEndpoint {
 
 	@Autowired
@@ -33,9 +32,6 @@ public class TestInscriptionEndpoint {
 	@Test
 	public void inscriptionEndpoint() throws Exception {
 		Source requestPayload = new StreamSource(new ClassPathResource("Personnel.xml").getInputStream());
-
-		// mockClient.sendRequest(withPayload(requestPayload)).
-		// andExpect(payload(responsePayload));
 
 		mockClient.sendRequest(withPayload(requestPayload));
 	}
