@@ -1,8 +1,3 @@
-/**
- * 
- *
- */
-
 package iaws.inscription;
 
 import iaws.connexionDB.DbConnection;

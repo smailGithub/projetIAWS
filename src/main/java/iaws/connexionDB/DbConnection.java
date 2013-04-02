@@ -1,8 +1,3 @@
-/**
- *
- *
- */
-
 package iaws.connexionDB;
 
 import java.sql.Connection;

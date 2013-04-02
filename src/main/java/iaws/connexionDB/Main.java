@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package iaws.connexionDB;
 
 import java.sql.ResultSet;
@@ -8,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * DB testing class
+ * 
+ * 
  * @author Ismail
  * 
  */
 public class Main {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		DbConnection connexion = new DbConnection();
 		String db = "applicationws";

@@ -1,9 +1,4 @@
-/**
- * 
- *
- */
-
-package iaws.osm;
+package iaws.neighbors;
 
 import iaws.connexionDB.DbConnection;
 
@@ -14,7 +9,7 @@ import java.sql.ResultSet;
  * @author Ismail
  * 
  */
-public class OsmService {
+public class NeighborsService {
 	private DbConnection dbConnection = new DbConnection();
 	private static final String DB_NAME = "applicationws";
 
@@ -54,8 +49,8 @@ public class OsmService {
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		double dist = earthRadius * c;
 
-		double meterConversion = 1609;
+		double meterConversion = 1.609;
 
-		return dist * meterConversion / 1000;
+		return dist * meterConversion;
 	}
 }

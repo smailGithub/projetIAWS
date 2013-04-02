@@ -11,5 +11,10 @@
         <constructor-arg name="inscriptionService" ref="inscriptionService"/>
     </bean>
     <bean id="inscriptionService" class="iaws.inscription.InscriptionService" />
+    
+    <bean id="neighborsEndPoint" class="iaws.neighbors.NeighborsEndPoint">
+        <constructor-arg name="neighborsService" ref="neighborsService"/>
+    </bean>
+    <bean id="neighborsService" class="iaws.neighbors.NeighborsService" />
 
 </beans>

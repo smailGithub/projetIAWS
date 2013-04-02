@@ -1,6 +1,6 @@
-package iaws.osm;
+package iaws.neighbors;
 
-import iaws.osm.OsmService;
+import iaws.neighbors.NeighborsService;
 
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -12,16 +12,16 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 
 @Endpoint
-public class OsmEndPoint {
+public class NeighborsEndPoint {
 	private static final String NAMESPACE_URI = "http://IAWS/";
 
 	private XPath mailExpression;
 	private XPath rayonExpression;
 
-	private OsmService osmService;
+	private NeighborsService osmService;
 
 	@Autowired
-	public OsmEndPoint(OsmService osmService) throws JDOMException {
+	public NeighborsEndPoint(NeighborsService osmService) throws JDOMException {
 		this.osmService = osmService;
 
 		Namespace namespace = Namespace.getNamespace("iaws", NAMESPACE_URI);

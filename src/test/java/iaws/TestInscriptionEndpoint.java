@@ -31,7 +31,7 @@ public class TestInscriptionEndpoint {
 
 	@Test
 	public void inscriptionEndpoint() throws Exception {
-		Source requestPayload = new StreamSource(new ClassPathResource("Personnel.xml").getInputStream());
+		Source requestPayload = new StreamSource(new ClassPathResource("UserExample.xml").getInputStream());
 
 		mockClient.sendRequest(withPayload(requestPayload));
 	}
