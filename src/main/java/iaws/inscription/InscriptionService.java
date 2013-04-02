@@ -38,8 +38,8 @@ public class InscriptionService {
 	
 	{
 		try {
-			latExpression = XPath.newInstance("//place@lat");
-			lonExpression = XPath.newInstance("//place@lon");
+			latExpression = XPath.newInstance("//place/@lat");
+			lonExpression = XPath.newInstance("//place/@lon");
 		} catch(JDOMException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
