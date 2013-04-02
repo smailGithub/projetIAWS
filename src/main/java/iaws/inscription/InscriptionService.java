@@ -20,9 +20,9 @@ import java.sql.ResultSet;
 import org.jdom.Document;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 import org.jdom.xpath.XPath;
-
-
 
 /**
  * @author Vincent Carassus
@@ -32,13 +32,13 @@ public class InscriptionService {
 
 	private DbConnection dbConnection = new DbConnection();
 	private static final String DB_NAME = "applicationws";
-	
-	private XPath latExpression;
-	private XPath lonExpression;
-	
-	{
+
+	private static XPath latExpression;
+	private static XPath lonExpression;
+
+	static {
 		try {
-			latExpression = XPath.newInstance("//place/@lat");
+			latExpression = XPath.newInstance("/searchresults/place/@lat");
 			lonExpression = XPath.newInstance("//place/@lon");
 		} catch(JDOMException e) {
 			// TODO Auto-generated catch block
@@ -47,9 +47,9 @@ public class InscriptionService {
 	}
 
 	public int inscription(String lastname, String firstname, String mail, String adrPostale) {
-		if(isMailValid(mail)) {
-			if(isMailInDB(mail)) {
-				return 100; 
+		if (isMailValid(mail)) {
+			if (isMailInDB(mail)) {
+				return 100;
 			}
 			double[] latLon = getLatLon(adrPostale);
 			addToDB(lastname, firstname, mail, adrPostale, latLon[0], latLon[1]);
@@ -58,15 +58,16 @@ public class InscriptionService {
 		return 110;
 	}
 
-	private double[] getLatLon(String adrPostale) {
+	private static double[] getLatLon(String adrPostale) {
 		double[] res = new double[2];
 		try {
-			String query = "http://nominatim.openstreetmap.org/search/" + adrPostale + "format=xml&polygon=1&addressdetails=1";
+			String query = "http://nominatim.openstreetmap.org/search/" + adrPostale
+					+ "?format=xml&polygon=1&addressdetails=1";
 			
-			
+			System.out.println(query);
+
 			URL url = new URL(query);
-			HttpURLConnection connection =
-			    (HttpURLConnection) url.openConnection();
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
 			connection.setRequestProperty("Accept", "application/xml");
 
@@ -74,9 +75,14 @@ public class InscriptionService {
 
 			SAXBuilder builder = new SAXBuilder();
 			Document document = builder.build(reader);
+
+			XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
+			String xmlString = outputter.outputString(document);
+			System.out.println(xmlString);
+
 			res[0] = Double.valueOf(latExpression.valueOf(document));
 			res[1] = Double.valueOf(lonExpression.valueOf(document));
-			
+
 		} catch(JDOMException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,9 +96,11 @@ public class InscriptionService {
 		return res;
 	}
 
-	private void addToDB(String lastname, String firstname, String mail, String adrPostale, double latitude, double longitude) {
-		String insert = "INSERT INTO personnel(`nom`,`prenom`,`mail`,`adrPostale`,`latitude`,`longitude`)VALUES('" + lastname + "','" + firstname
-				+ "','" + mail + "','" + adrPostale + "'," + latitude + ", " + longitude + ");";
+	private void addToDB(String lastname, String firstname, String mail, String adrPostale, double latitude,
+			double longitude) {
+		String insert = "INSERT INTO personnel(`nom`,`prenom`,`mail`,`adrPostale`,`latitude`,`longitude`)VALUES('"
+				+ lastname + "','" + firstname + "','" + mail + "','" + adrPostale + "'," + latitude + ", " + longitude
+				+ ");";
 		dbConnection.insertRequest(insert, DB_NAME);
 	}
 
@@ -101,7 +109,7 @@ public class InscriptionService {
 		String requete = "SELECT mail FROM personnel";
 		res = dbConnection.selectRequest(requete, DB_NAME);
 		List<String> resultList = dbConnection.getResult(res);
-		for (int i = 0; i < resultList.size();i++) {
+		for (int i = 0; i < resultList.size(); i++) {
 			if (resultList.get(i).equals(mail))
 				return true;
 		}
@@ -110,5 +118,16 @@ public class InscriptionService {
 
 	private boolean isMailValid(String mail) {
 		return (mail.contains("@"));
+	}
+
+	/**
+	 * Main used for testing purposes
+	 * 
+	 * @param args
+	 *            unused
+	 */
+	public static void main(String... args) {
+		double[] res = getLatLon("118%20route%20de%20narbonne,Toulouse,France");
+		System.out.println(res[0] + ", " + res[1]);
 	}
 }

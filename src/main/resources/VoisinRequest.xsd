@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://projetIAWS">
-	<xs:element name="GetVoisinRequest">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://IAWS">
+	<xs:element name="VoisinRequest">
 		<xs:complexType>
 			<xs:all>
 				<xs:element name="mail" type="xs:String"/>

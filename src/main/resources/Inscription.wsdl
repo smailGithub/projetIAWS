@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://IAWS/Inscription/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Inscription" targetNamespace="http://IAWS/Inscription/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://IAWS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IAWS" targetNamespace="http://IAWS/">
   <wsdl:types>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <xsd:import namespace="http://IAWS/Inscription" schemaLocation="InscriptionRequest.xsd"/>
+      <xsd:import namespace="http://IAWS/" schemaLocation="InscriptionRequest.xsd"/>
+      <xsd:import namespace="http://IAWS/" schemaLocation="VoisinRequest.xsd"/>
     </xsd:schema>
   </wsdl:types>
   
   <wsdl:message name="InscriptionRequest">
     <wsdl:part element="schema:InscriptionRequest" name="InscriptionRequest"/>
   </wsdl:message>
-  <wsdl:message name="NeighborsRequest">
-    <wsdl:part element="schema:NeighborsRequest" name="NeighborsRequest"/>
+  <wsdl:message name="VoisinRequest">
+    <wsdl:part element="schema:VoisinRequest" name="VoisinRequest"/>
   </wsdl:message> 
   
   <wsdl:portType name="Inscription">
@@ -18,9 +19,9 @@
       <wsdl:input message="tns:InscriptionRequest" name="InscriptionRequest"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:portType name="Neighbors">
-    <wsdl:operation name="NeighborsOperation">
-      <wsdl:input message="tns:NeighborsRequest" name="NeighborsRequest"/>
+  <wsdl:portType name="getVoisin">
+    <wsdl:operation name="VoisinOperation">
+      <wsdl:input message="tns:VoisinRequest" name="VoisinRequest"/>
     </wsdl:operation>
   </wsdl:portType>
   
@@ -37,11 +38,11 @@
     </wsdl:operation>
   </wsdl:binding>
   
-  <wsdl:binding name="NeighborsBinding" type="tns:Neighbors">
+  <wsdl:binding name="getVoisinBinding" type="tns:getVoisin">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="NeighborsOperation">
-      <soap:operation soapAction="http://IAWS/Inscription"/>
-      <wsdl:input name="NeighborsRequest">
+    <wsdl:operation name="getVoisinOperation">
+      <soap:operation soapAction="http://IAWS/"/>
+      <wsdl:input name="VoisinRequest">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output>
@@ -52,6 +53,9 @@
   
   <wsdl:service name="CovoiturageService">
     <wsdl:port binding="tns:InscriptionBinding" name="Inscription">
+      <soap:address location="http://localhost:8080/IAWS/"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:getVoisinBinding" name="getVoisin">
       <soap:address location="http://localhost:8080/IAWS/"/>
     </wsdl:port>
   </wsdl:service>
