@@ -33,7 +33,7 @@ public class InscriptionService {
 
 	static {
 		try {
-			latExpression = XPath.newInstance("/searchresults/place/@lat");
+			latExpression = XPath.newInstance("//place/@lat");
 			lonExpression = XPath.newInstance("//place/@lon");
 		} catch(JDOMException e) {
 			// TODO Auto-generated catch block
@@ -46,14 +46,20 @@ public class InscriptionService {
 			if (isMailInDB(mail)) {
 				return 100;
 			}
-			double[] latLon = getLatLon(adrPostale);
+			double[] latLon;
+			try {
+				latLon = getLatLon(adrPostale);
+			} catch(JDOMException e) {
+				// no result : adress unknown
+				return 200;
+			}
 			addToDB(lastname, firstname, mail, adrPostale, latLon[0], latLon[1]);
 			return 0;
 		}
 		return 110;
 	}
 
-	private static double[] getLatLon(String adrPostale) {
+	private static double[] getLatLon(String adrPostale) throws JDOMException {
 		double[] res = new double[2];
 		try {
 			String query = "http://nominatim.openstreetmap.org/search/" + adrPostale
@@ -77,10 +83,7 @@ public class InscriptionService {
 
 			res[0] = Double.valueOf(latExpression.valueOf(document));
 			res[1] = Double.valueOf(lonExpression.valueOf(document));
-
-		} catch(JDOMException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		} catch(MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -122,7 +125,13 @@ public class InscriptionService {
 	 *            unused
 	 */
 	public static void main(String... args) {
-		double[] res = getLatLon("118%20route%20de%20narbonne,Toulouse,France");
-		System.out.println(res[0] + ", " + res[1]);
+		double[] res;
+		try {
+			res = getLatLon("118%20route%20de%20narbonne,Toulouse,France");
+			System.out.println(res[0] + ", " + res[1]);
+		} catch(JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -64,12 +64,12 @@ public class InscriptionEndPoint {
 	 * @throws Exception
 	 */
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InscriptionRequest2")
-	public void handleInscriptionRequest2(@XPathParam("//InscriptionRequest/nom") String nom,
+	public int handleInscriptionRequest2(@XPathParam("//InscriptionRequest/nom") String nom,
 			@XPathParam("//InscriptionRequest/prenom") String prenom,
 			@XPathParam("//InscriptionRequest/mail") String mail,
 			@XPathParam("//InscriptionRequest/adrPostale") String adrPostale
 			) throws Exception {
 
-		inscriptionService.inscription(nom, prenom, mail, adrPostale);
+		return inscriptionService.inscription(nom, prenom, mail, adrPostale);
 	}
 }
