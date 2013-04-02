@@ -15,8 +15,8 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 public class OsmEndPoint {
 	private static final String NAMESPACE_URI = "http://IAWS/";
 
-	private XPath longitudeExpression;
-	private XPath latitudeExpression;
+	private XPath mailExpression;
+	private XPath rayonExpression;
 
 	private OsmService osmService;
 
@@ -26,19 +26,19 @@ public class OsmEndPoint {
 
 		Namespace namespace = Namespace.getNamespace("iaws", NAMESPACE_URI);
 
-		latitudeExpression = XPath.newInstance("//iaws:VoisinRequest/latitude");
-		latitudeExpression.addNamespace(namespace);
+		mailExpression = XPath.newInstance("//iaws:VoisinRequest/mail");
+		mailExpression.addNamespace(namespace);
 
-		longitudeExpression = XPath.newInstance("//iaws:VoisinRequest/longitude");
-		longitudeExpression.addNamespace(namespace);
+		rayonExpression = XPath.newInstance("//iaws:VoisinRequest/rayon");
+		rayonExpression.addNamespace(namespace);
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "VoisinRequest")
 	public void handleVoisinRequest(@RequestPayload Element voisinRequest) throws Exception {
-		String latitude = latitudeExpression.valueOf(voisinRequest);
-		String longitude = longitudeExpression.valueOf(voisinRequest);
+		String mail = mailExpression.valueOf(voisinRequest);
+		String rayon = rayonExpression.valueOf(voisinRequest);
 
-		osmService.getVoisin(latitude, longitude);
+		osmService.getVoisin(mail, rayon);
 	}
 
 }
